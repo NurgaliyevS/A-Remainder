@@ -1,0 +1,69 @@
+
+{% extends "todo/base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+            <div class="col-md-7 text-center">
+            <h1>Completed Todos</h1>
+{#            </div>#}
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+
+        <div class="col-md-10">
+            <div class="list-group">
+                {% for todo in todos %}
+                    <a href="{% url 'viewtodo' todo.id %}" class="list-group-item list-group-item-action{% if todo.important %} list-group-item-danger{% endif %}"><b>{{ todo.title }}</b> - Completed {{ todo.datecompleted|date:'M j Y H:i' }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{#{% extends 'todo/base.html' %}#}
+{##}
+{#{% block content %}#}
+{##}
+{##}
+{#Completed#}
+{##}
+{##}
+{#<ul>#}
+{##}
+{##### ЦИКЛ, чтобы перечислить все Todo объекты#}
+{##### Передаем список todos записей из views.py#}
+{##}
+{#    {% for todo in todos %}#}
+{##}
+{#<li>#}
+        {# Делаем наши заметки кликабельными        #}
+{#        <a href="{% url 'viewtodo'  todo.id %}">#}
+        {# Если напоминание важное, то подкрасится жирным шрифтом, из-за <b> #}
+{#        {% if todo.important %}<b>#}
+{#        {% endif %}#}
+{#        {{ todo.title }}#}
+{#        {% if todo.important %}#}
+{#    </b>#}
+{#        {% endif %}#}
+{#        <br>#}
+        {# Если есть описание (memo), у вас оно выйдет и перед ним дефис       #}
+{#        {% if todo.memo %}#}
+{#            - {{ todo.memo }}#}
+{#        {% endif %}#}
+    {# МЕСЯЦ ДЕНЬ ГОД ЧАС МИНУТА#}
+{#        <br>#}
+{#    {{ todo.datecompleted|date:"M j Y H:i" }}#}
+{#    </a>#}
+{#</li>#}
+{#    {% endfor %}#}
+{##}
+{##}
+{##}
+{##}
+{#</ul>#}
+{##}
+{##}
+{##}
+{#{% endblock %}#}

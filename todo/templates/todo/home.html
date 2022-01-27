@@ -1,0 +1,15 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+
+
+{# 8, 9 СТРОКА, ЧТОБЫ ТЕКСТ БЫЛ ПО ЦЕНТРУ #}
+<div class="row justify-content-center mt-5">
+        <div class="col-md-7 text-center">
+<h1 class="title svelte-y0ww84">Reminders in your Browser</h1>
+
+<h4 class="subtitle svelte-y0ww84">Set Reminders or take notes.</h4>
+            <br>
+        <a role="button" class="btn btn-dark btn-lg" href="{% url 'signupuser' %}">Start</a>
+{% endblock %}

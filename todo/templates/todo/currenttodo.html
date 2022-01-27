@@ -1,0 +1,51 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+
+    <div class="row justify-content-center mt-5">
+            <div class="col-md-7 text-center">
+            {# Если больше одного будет Todos            #}
+            {# Если одно, то ToDo           #}
+            {% if todos %}
+                 <h1>{{ todos.count }} Current Todo{{ todos.count|pluralize }}</h1>
+            {% else %}
+                <h1>Current Todos</h1>
+            {% endif %}
+                    </div>
+    </div>
+
+
+{##### ЦИКЛ, чтобы перечислить все Todo объекты#}
+{##### Передаем список todos записей из views.py#}
+
+
+ <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+        {% if todos %}
+            <div class="list-group">
+                {% for todo in todos %}
+                    {# Делаем наши заметки кликабельными #}
+                    {# <a href="{% url 'viewtodo'  todo.id %}">#}
+                    {# Если напоминание важное, то подкрасится жирным шрифтом, из-за <b> #}
+                    {# Если есть описание (memo), у вас оно выйдет и перед ним дефис       #}
+                    <a href="{% url 'viewtodo' todo.id %}" class="list-group-item list-group-item-action{% if todo.important %} list-group-item-primary{% endif %}"><b>{{ todo.title }}</b>{% if todo.memo %} - {{ todo.memo|truncatechars:30 }}{% endif %}</a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center">
+                <h2>Looks like you don't have any todos! Nice work.</h2>
+            <br>
+            </div>
+            <div class="text-center">
+            <a role="button" class="btn btn-dark" href="{% url 'createtodo' %}">New Todo</a>
+            </div>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
