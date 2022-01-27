@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-*^p3umo^9fnni*3g0nu0_1^5^%l48_6nw(23h!wh)3e&2tu8q!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['discordbot.pythonanywhere.com/']
+ALLOWED_HOSTS = ['discordbot.pythonanywhere.com']
 
 
 # Application definition
