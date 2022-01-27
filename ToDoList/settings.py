@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*^p3umo^9fnni*3g0nu0_1^5^%l48_6nw(23h!wh)3e&2tu8q!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['discordbot.pythonanywhere.com/']
 
 
 # Application definition
@@ -117,6 +117,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR/'static'
+
 
 #### ЭТО НУЖНО ЧТОБЫ
 #### КОГДА ПОЛЬЗОВАТЕЛЬ ПЫТАЕТСЯ ЗАЙТИ
@@ -129,3 +131,8 @@ LOGIN_URL = '/login'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+try:
+    from .local_settings import *
+except ImportError:
+    print ("Looks like no localfile. You must be on production")
