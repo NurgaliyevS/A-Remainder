@@ -110,6 +110,7 @@
                     <a class="nav-link" href="{% url 'createtodo' %}">Create</a>
                 </li>
 
+
         </ul>
     {% endif %}
     <ul class="navbar-nav ml-auto">
@@ -122,6 +123,11 @@
                     </form>
                 </li>
             {% else %}
+                <li class="nav-item">
+
+            <a class="nav-link" href="https://sabyr.pythonanywhere.com/" target="_blank">Portfolio</a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'signupuser' %}">Sign Up</a>
                 </li>
